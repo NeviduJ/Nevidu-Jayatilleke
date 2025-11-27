@@ -5,7 +5,6 @@ import publications from "../../data/publications.json";
 import { getTopRepos } from "@/lib/github";
 import * as motion from "framer-motion/client";
 import { Suspense } from "react";
-import profileImg from "../../public/profile.jpg";
 
 async function ProjectsSection() {
   const repos = await getTopRepos("NeviduJ");
@@ -56,6 +55,9 @@ async function ProjectsSection() {
 }
 
 export default async function Home() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const profileImageSrc = `${basePath}/profile.jpg`;
+
   return (
     <main className="min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50 selection:bg-neutral-200 dark:selection:bg-neutral-800">
       {/* Hero Section */}
@@ -68,7 +70,7 @@ export default async function Home() {
         >
           <div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0 overflow-hidden rounded-full border-2 border-neutral-100 dark:border-neutral-800">
             <Image
-              src={profileImg}
+              src={profileImageSrc}
               alt="Nevidu Jayatilleke"
               fill
               className="object-cover"
