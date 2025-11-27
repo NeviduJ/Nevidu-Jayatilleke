@@ -5,6 +5,7 @@ import publications from "../../data/publications.json";
 import { getTopRepos } from "@/lib/github";
 import * as motion from "framer-motion/client";
 import { Suspense } from "react";
+import profileImg from "../../public/profile.jpg";
 
 async function ProjectsSection() {
   const repos = await getTopRepos("NeviduJ");
@@ -67,7 +68,7 @@ export default async function Home() {
         >
           <div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0 overflow-hidden rounded-full border-2 border-neutral-100 dark:border-neutral-800">
             <Image
-              src="/profile.jpg"
+              src={profileImg}
               alt="Nevidu Jayatilleke"
               fill
               className="object-cover"
