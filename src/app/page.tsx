@@ -114,7 +114,7 @@ export default async function Home() {
               href="/resume"
               className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline font-medium"
             >
-              View Full Resume →
+              More Info →
             </Link>
           </div>
         </motion.div>
