@@ -24,8 +24,31 @@ export default function Resume() {
                     Professional Background
                 </motion.h1>
 
-                {/* Experience Section */}
+                {/* Education Section */}
                 <section className="mb-16">
+                    <h2 className="text-2xl font-semibold mb-8 pb-2 border-b border-neutral-200 dark:border-neutral-800">Education</h2>
+                    <div className="space-y-10">
+                        {education.map((edu, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                            >
+                                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-2">
+                                    <h3 className="font-semibold text-xl">{edu.degree}</h3>
+                                    <span className="text-sm text-neutral-500 font-mono">{edu.period}</span>
+                                </div>
+                                <div className="text-neutral-600 dark:text-neutral-400 font-medium mb-2">{edu.institution}</div>
+                                <p className="text-neutral-500">{edu.details}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* Experience Section */}
+                <section>
                     <h2 className="text-2xl font-semibold mb-8 pb-2 border-b border-neutral-200 dark:border-neutral-800">Experience</h2>
                     <div className="space-y-12">
                         {experience.map((job, index) => (
@@ -48,29 +71,6 @@ export default function Resume() {
                                     <span className="text-sm text-neutral-500 font-mono">{job.period}</span>
                                 </div>
                                 <div className="text-neutral-600 dark:text-neutral-400 font-medium">{job.company}</div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </section>
-
-                {/* Education Section */}
-                <section>
-                    <h2 className="text-2xl font-semibold mb-8 pb-2 border-b border-neutral-200 dark:border-neutral-800">Education</h2>
-                    <div className="space-y-10">
-                        {education.map((edu, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                            >
-                                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-2">
-                                    <h3 className="font-semibold text-xl">{edu.degree}</h3>
-                                    <span className="text-sm text-neutral-500 font-mono">{edu.period}</span>
-                                </div>
-                                <div className="text-neutral-600 dark:text-neutral-400 font-medium mb-2">{edu.institution}</div>
-                                <p className="text-neutral-500">{edu.details}</p>
                             </motion.div>
                         ))}
                     </div>
