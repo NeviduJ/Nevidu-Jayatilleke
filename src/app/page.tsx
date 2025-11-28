@@ -55,8 +55,11 @@ async function ProjectsSection() {
 }
 
 export default async function Home() {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-  const profileImageSrc = `${basePath}/profile.jpg?v=2`;
+  // Hardcoded basePath - works in both dev and production without env variables
+  const basePath = typeof window === 'undefined' && process.env.NODE_ENV === 'production'
+    ? '/Nevidu-Jayatilleke'
+    : '';
+  const profileImageSrc = `${basePath}/profile.jpg?v=3`;
 
   return (
     <main className="min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50 selection:bg-neutral-200 dark:selection:bg-neutral-800">
