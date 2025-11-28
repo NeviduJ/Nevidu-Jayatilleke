@@ -21,7 +21,7 @@ export default function Resume() {
                     animate={{ opacity: 1, y: 0 }}
                     className="text-3xl font-bold mb-12"
                 >
-                    Resume
+                    Professional Background
                 </motion.h1>
 
                 {/* Experience Section */}
