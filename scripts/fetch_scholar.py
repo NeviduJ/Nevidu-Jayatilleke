@@ -32,8 +32,8 @@ def fetch_publications(author_id):
         }
         publications.append(pub_data)
     
-    # Sort by year descending
-    publications.sort(key=lambda x: x['year'] if x['year'] else '0', reverse=True)
+    # Sort by citation count descending
+    publications.sort(key=lambda x: x.get('citation_count', 0), reverse=True)
     
     return publications
 
