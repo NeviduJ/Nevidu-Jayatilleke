@@ -101,10 +101,10 @@ export default async function Home() {
           viewport={{ once: true }}
           className="prose dark:prose-invert text-neutral-600 dark:text-neutral-400 leading-relaxed space-y-4"
         >
-          <p>
+          <p className="text-justify">
             I am a Postgraduate Researcher from the University of Moratuwa, Sri Lanka, specialising primarily in the field of Natural Language Processing (NLP). My work is dedicated to developing technological solutions for challenging linguistic tasks, particularly focusing on advancing the capabilities of AI for low-resource languages such as Sinhala and Tamil.
           </p>
-          <p>
+          <p className="text-justify">
             I am deeply committed to research that bridges the digital language divide, ensuring that AI technologies are universally accessible and effective across diverse linguistic backgrounds. Through my academic pursuits and research contributions, I strive to make significant advancements in the broader fields of artificial intelligence and computational linguistics.
           </p>
           <div className="pt-2">
