@@ -69,12 +69,10 @@ export default async function Home() {
           className="flex flex-col md:flex-row gap-8 items-start md:items-center"
         >
           <div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0 overflow-hidden rounded-full border-2 border-neutral-100 dark:border-neutral-800">
-            <Image
+            <img
               src={profileImageSrc}
               alt="Nevidu Jayatilleke"
-              fill
-              className="object-cover"
-              priority
+              className="object-cover w-full h-full"
             />
           </div>
           <div className="flex-1 space-y-4">
