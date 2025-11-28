@@ -67,7 +67,7 @@ export default async function Home() {
         >
           <div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0 overflow-hidden rounded-full border-2 border-neutral-100 dark:border-neutral-800">
             <Image
-              src="/profile.jpg"
+              src="/profile.jpg?v=1"
               alt="Nevidu Jayatilleke"
               fill
               className="object-cover"
