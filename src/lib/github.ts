@@ -17,21 +17,27 @@ export async function getTopRepos(username: string) {
 
         const repos = await response.json();
 
-        // Calculate popularity score similar to GitHub's algorithm
-        // Combines stars, forks, and recency with weighted importance
+        // GitHub's popular repos seem to prioritize recent activity heavily
+        // when stars/forks are similar (or all zero)
         const scoredRepos = repos
-            .filter((repo: any) => !repo.fork && !repo.private)
+            .filter((repo: any) =>
+                !repo.fork &&
+                !repo.private &&
+                repo.name !== 'Nevidu-Jayatilleke' // Exclude website repo
+            )
             .map((repo: any) => {
                 const daysSinceUpdate = Math.floor(
                     (Date.now() - new Date(repo.updated_at).getTime()) / (1000 * 60 * 60 * 24)
                 );
-                const recencyScore = Math.max(0, 365 - daysSinceUpdate) / 365; // Decay over a year
+                // Higher recency score for more recent updates
+                const recencyScore = Math.max(0, 180 - daysSinceUpdate); // Decay over 180 days
 
-                // Weighted score: stars (60%) + forks (30%) + recency (10%)
+                // When most repos have 0 stars/forks, prioritize recency heavily
+                // Weighted score: stars (20%) + forks (10%) + recency (70%)
                 const popularityScore =
-                    (repo.stargazers_count * 0.6) +
-                    (repo.forks_count * 0.3) +
-                    (recencyScore * 10 * 0.1);
+                    (repo.stargazers_count * 20) +
+                    (repo.forks_count * 10) +
+                    recencyScore;
 
                 return { ...repo, popularityScore };
             });
