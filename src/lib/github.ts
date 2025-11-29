@@ -18,7 +18,7 @@ export async function getTopRepos(username: string) {
         const repos = await response.json();
         return repos
             .filter((repo: any) => !repo.fork && !repo.private)
-            .sort((a: any, b: any) => b.stargazers_count - a.stargazers_count)
+            .sort((a: any, b: any) => b.watchers_count - a.watchers_count)
             .slice(0, 6);
     } catch (error) {
         console.error('Error fetching GitHub repos:', error);

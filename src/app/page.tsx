@@ -160,7 +160,9 @@ export default async function Home() {
                             ) : (
                               author
                             )}
-                            {i < arr.length - 1 ? " and " : ""}
+                            {i < arr.length - 1 && (
+                              i === arr.length - 2 ? " and " : ", "
+                            )}
                           </span>
                         ))}
                       </div>
