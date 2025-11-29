@@ -17,7 +17,7 @@ export async function getTopRepos(username: string) {
 
         const repos = await response.json();
 
-        // GitHub's popular repos seem to prioritize recent activity heavily
+        // GitHub's popular repos prioritize recent activity heavily
         // when stars/forks are similar (or all zero)
         const scoredRepos = repos
             .filter((repo: any) =>
@@ -40,11 +40,27 @@ export async function getTopRepos(username: string) {
                     recencyScore;
 
                 return { ...repo, popularityScore };
-            });
+            })
+            .sort((a: any, b: any) => b.popularityScore - a.popularityScore);
 
-        return scoredRepos
-            .sort((a: any, b: any) => b.popularityScore - a.popularityScore)
-            .slice(0, 6);
+        // Add diversity - limit repos with similar prefixes (e.g., MLB-)
+        const diverseRepos: any[] = [];
+        const prefixCount: { [key: string]: number } = {};
+
+        for (const repo of scoredRepos) {
+            // Extract prefix (e.g., "MLB" from "MLB-Score-Predictor")
+            const prefix = repo.name.split('-')[0];
+
+            // Limit to 1 repo per prefix for diversity
+            if (!prefixCount[prefix] || prefixCount[prefix] < 1) {
+                diverseRepos.push(repo);
+                prefixCount[prefix] = (prefixCount[prefix] || 0) + 1;
+            }
+
+            if (diverseRepos.length >= 6) break;
+        }
+
+        return diverseRepos;
     } catch (error) {
         console.error('Error fetching GitHub repos:', error);
         return [];
