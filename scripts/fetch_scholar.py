@@ -1,41 +1,92 @@
 import json
 import os
-from scholarly import scholarly
+import time
+import random
+from scholarly import scholarly, ProxyGenerator
 
-def fetch_publications(author_id):
-    print(f"Fetching publications for author ID: {author_id}")
-    author = scholarly.search_author_id(author_id)
-    scholarly.fill(author, sections=['publications'])
+def setup_proxy():
+    """Setup proxy for scholarly to avoid blocking"""
+    try:
+        pg = ProxyGenerator()
+        # Try to use Luminati proxy if available, otherwise use ScraperAPI
+        # Note: Free proxies often don't work well with scholarly
+        # For now, we'll skip proxy and rely on retry logic
+        # Uncomment and configure if you have a proxy service:
+        # pg.ScraperAPI('your_api_key')
+        # scholarly.use_proxy(pg)
+        print("Running without proxy - relying on retry logic and delays")
+        return False
+    except Exception as e:
+        print(f"Warning: Could not setup proxy: {e}")
+        print("Continuing without proxy...")
+        return False
+
+def fetch_publications_with_retry(author_id, max_retries=5):
+    """Fetch publications with retry logic and exponential backoff"""
     
-    publications = []
-    for pub in author['publications']:
-        # Fill publication details to get complete information including authors
+    for attempt in range(max_retries):
         try:
-            scholarly.fill(pub)
+            print(f"Attempt {attempt + 1}/{max_retries}: Fetching publications for author ID: {author_id}")
+            
+            # Add random delay to avoid rate limiting (2-5 seconds)
+            if attempt > 0:
+                delay = (2 ** attempt) + random.uniform(1, 3)
+                print(f"Waiting {delay:.1f} seconds before retry...")
+                time.sleep(delay)
+            
+            # Search for author
+            author = scholarly.search_author_id(author_id)
+            time.sleep(random.uniform(1, 2))  # Random delay between requests
+            
+            # Fill author details
+            scholarly.fill(author, sections=['publications'])
+            
+            publications = []
+            for i, pub in enumerate(author['publications']):
+                # Add small delay between publication fetches
+                if i > 0 and i % 5 == 0:
+                    time.sleep(random.uniform(1, 2))
+                
+                # Fill publication details to get complete information including authors
+                try:
+                    scholarly.fill(pub)
+                except Exception as e:
+                    print(f"Warning: Could not fill details for publication: {pub['bib'].get('title', 'Unknown')}")
+                    print(f"Error: {e}")
+                
+                # Format author names properly
+                author_list = pub['bib'].get('author', '')
+                if isinstance(author_list, list):
+                    author_str = ', '.join(author_list)
+                else:
+                    author_str = author_list if author_list else 'Unknown Author'
+                
+                pub_data = {
+                    'title': pub['bib'].get('title', 'Untitled'),
+                    'year': pub['bib'].get('pub_year', 'N/A'),
+                    'citation_count': pub.get('num_citations', 0),
+                    'venue': pub['bib'].get('venue') or pub['bib'].get('journal') or pub['bib'].get('citation', ''),
+                    'author': author_str,
+                    'url': pub.get('pub_url')
+                }
+                publications.append(pub_data)
+            
+            # Sort by citation count descending
+            publications.sort(key=lambda x: x.get('citation_count', 0), reverse=True)
+            
+            print(f"Successfully fetched {len(publications)} publications")
+            return publications
+            
         except Exception as e:
-            print(f"Warning: Could not fill details for publication: {pub['bib'].get('title', 'Unknown')}")
-        
-        # Format author names properly
-        author_list = pub['bib'].get('author', '')
-        if isinstance(author_list, list):
-            author_str = ', '.join(author_list)
-        else:
-            author_str = author_list if author_list else 'Unknown Author'
-        
-        pub_data = {
-            'title': pub['bib'].get('title', 'Untitled'),
-            'year': pub['bib'].get('pub_year', 'N/A'),
-            'citation_count': pub.get('num_citations', 0),
-            'venue': pub['bib'].get('venue') or pub['bib'].get('journal') or pub['bib'].get('citation', ''),
-            'author': author_str,
-            'url': pub.get('pub_url')
-        }
-        publications.append(pub_data)
+            print(f"Attempt {attempt + 1} failed: {e}")
+            if attempt == max_retries - 1:
+                print("All retry attempts exhausted")
+                raise
+            # Setup proxy again on retry if first attempt failed
+            if attempt == 1:
+                setup_proxy()
     
-    # Sort by citation count descending
-    publications.sort(key=lambda x: x.get('citation_count', 0), reverse=True)
-    
-    return publications
+    return []
 
 def main():
     AUTHOR_ID = '2pDm_0UAAAAJ'
@@ -44,14 +95,43 @@ def main():
     # Ensure data directory exists
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     
+    # Check if existing file exists for fallback
+    existing_data = None
+    if os.path.exists(output_file):
+        try:
+            with open(output_file, 'r') as f:
+                existing_data = json.load(f)
+            print(f"Found existing data with {len(existing_data)} publications")
+        except Exception as e:
+            print(f"Could not read existing data: {e}")
+    
+    # Setup proxy
+    setup_proxy()
+    
     try:
-        pubs = fetch_publications(AUTHOR_ID)
-        with open(output_file, 'w') as f:
-            json.dump(pubs, f, indent=2)
-        print(f"Successfully saved {len(pubs)} publications to {output_file}")
+        pubs = fetch_publications_with_retry(AUTHOR_ID)
+        
+        if pubs:
+            with open(output_file, 'w') as f:
+                json.dump(pubs, f, indent=2)
+            print(f"✓ Successfully saved {len(pubs)} publications to {output_file}")
+        else:
+            print("No publications fetched")
+            if existing_data:
+                print("Keeping existing data")
+            exit(1)
+            
     except Exception as e:
-        print(f"Error fetching publications: {e}")
-        exit(1)
+        print(f"✗ Error fetching publications: {e}")
+        
+        # Fallback: keep existing data if available
+        if existing_data:
+            print(f"Keeping existing data with {len(existing_data)} publications")
+            print("Note: Data was not updated but workflow will continue")
+            exit(0)  # Exit successfully to not fail the workflow
+        else:
+            print("No existing data to fall back on")
+            exit(1)
 
 if __name__ == "__main__":
     main()
