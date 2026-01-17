@@ -10,10 +10,10 @@
   {
     "title": "Zero-shot OCR Accuracy of Low-Resourced Languages: A Comparative Analysis on Sinhala and Tamil",
     "year": 2025,
-    "citation_count": 2,
-    "venue": "arXiv preprint arXiv:2507.18264",
-    "author": "Nevidu Jayatilleke and Nisansa de Silva",
-    "url": "https://aclanthology.org/anthology-files/pdf/ranlp/2025.ranlp-1.56.pdf"
+    "citation_count": 3,
+    "venue": "Proceedings of the 15th International Conference on Recent Advances in \u2026, 2025",
+    "author": "Nevidu Jayatilleke and Nisansa De Silva",
+    "url": "https://aclanthology.org/2025.ranlp-1.56/"
   },
   {
     "title": "A Hybrid Architecture with Efficient Fine Tuning for Abstractive Patent Document Summarization",
