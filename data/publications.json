@@ -1,5 +1,13 @@
 [
   {
+    "title": "Zero-shot OCR Accuracy of Low-Resourced Languages: A Comparative Analysis on Sinhala and Tamil",
+    "year": 2025,
+    "citation_count": 5,
+    "venue": "Proceedings of the 15th International Conference on Recent Advances in \u2026, 2025",
+    "author": "Nevidu Jayatilleke and Nisansa De Silva",
+    "url": "https://aclanthology.org/2025.ranlp-1.56/"
+  },
+  {
     "title": "Advancements in Natural Language Processing for Automatic Text Summarization",
     "year": 2024,
     "citation_count": 5,
@@ -8,17 +16,9 @@
     "url": "https://ieeexplore.ieee.org/abstract/document/10795848/"
   },
   {
-    "title": "Zero-shot OCR Accuracy of Low-Resourced Languages: A Comparative Analysis on Sinhala and Tamil",
-    "year": 2025,
-    "citation_count": 4,
-    "venue": "Proceedings of the 15th International Conference on Recent Advances in \u2026, 2025",
-    "author": "Nevidu Jayatilleke and Nisansa De Silva",
-    "url": "https://aclanthology.org/2025.ranlp-1.56/"
-  },
-  {
     "title": "SiDiaC: Sinhala Diachronic Corpus",
     "year": 2025,
-    "citation_count": 1,
+    "citation_count": 2,
     "venue": "arXiv preprint arXiv:2509.17912",
     "author": "Nevidu Jayatilleke and Nisansa de Silva",
     "url": "https://arxiv.org/abs/2509.17912"
@@ -30,5 +30,13 @@
     "venue": "2025 International Research Conference on Smart Computing and Systems \u2026, 2025",
     "author": "Nevidu Jayatilleke and Ruvan Weerasinghe",
     "url": "https://ieeexplore.ieee.org/abstract/document/11030964/"
+  },
+  {
+    "title": "SinFoS: A Parallel Dataset for Translating Sinhala Figures of Speech",
+    "year": 2026,
+    "citation_count": 0,
+    "venue": "arXiv preprint arXiv:2602.09866",
+    "author": "Johan Sofalas and Dilushri Pavithra and Nevidu Jayatilleke and Ruvan Weerasinghe",
+    "url": "https://arxiv.org/abs/2602.09866"
   }
 ]
