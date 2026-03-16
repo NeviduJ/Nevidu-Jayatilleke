@@ -2,7 +2,7 @@
   {
     "title": "Zero-shot OCR Accuracy of Low-Resourced Languages: A Comparative Analysis on Sinhala and Tamil",
     "year": 2025,
-    "citation_count": 6,
+    "citation_count": 7,
     "venue": "Proceedings of the 15th International Conference on Recent Advances in \u2026, 2025",
     "author": "Nevidu Jayatilleke and Nisansa De Silva",
     "url": "https://aclanthology.org/2025.ranlp-1.56/"
@@ -18,7 +18,7 @@
   {
     "title": "SiDiaC: Sinhala Diachronic Corpus",
     "year": 2025,
-    "citation_count": 3,
+    "citation_count": 4,
     "venue": "arXiv preprint arXiv:2509.17912",
     "author": "Nevidu Jayatilleke and Nisansa de Silva",
     "url": "https://arxiv.org/abs/2509.17912"
@@ -30,6 +30,14 @@
     "venue": "2025 International Research Conference on Smart Computing and Systems \u2026, 2025",
     "author": "Nevidu Jayatilleke and Ruvan Weerasinghe",
     "url": "https://ieeexplore.ieee.org/abstract/document/11030964/"
+  },
+  {
+    "title": "SiDiaC-v. 2.0: Sinhala Diachronic Corpus Version 2.0",
+    "year": 2026,
+    "citation_count": 0,
+    "venue": "arXiv preprint arXiv:2603.10861",
+    "author": "Nevidu Jayatilleke and Nisansa de Silva and Uthpala Nimanthi and Gagani Kulathilaka and Azra Safrullah and Johan Sofalas",
+    "url": "https://arxiv.org/abs/2603.10861"
   },
   {
     "title": "SinhaLegal: A Benchmark Corpus for Information Extraction and Analysis in Sinhala Legislative Texts",
