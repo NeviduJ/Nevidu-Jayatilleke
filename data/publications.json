@@ -32,20 +32,20 @@
     "url": "https://ieeexplore.ieee.org/abstract/document/11030964/"
   },
   {
-    "title": "SinFoS: A Parallel Dataset for Translating Sinhala Figures of Speech",
-    "year": 2026,
-    "citation_count": 0,
-    "venue": "MWE 2026",
-    "author": "Johan Sofalas and Dilushri Pavithra and Nevidu Jayatilleke and Ruvan Weerasinghe",
-    "url": "https://aclanthology.org/2026.mwe-1.2/"
-  },
-  {
     "title": "SiDiaC-v. 2.0: Sinhala Diachronic Corpus Version 2.0",
     "year": 2026,
     "citation_count": 0,
     "venue": "arXiv preprint arXiv:2603.10861",
     "author": "Nevidu Jayatilleke and Nisansa de Silva and Uthpala Nimanthi and Gagani Kulathilaka and Azra Safrullah and Johan Sofalas",
     "url": "https://arxiv.org/abs/2603.10861"
+  },
+  {
+    "title": "SINFOS: A Parallel Dataset for Translating Sinhala Figures of Speech",
+    "year": 2026,
+    "citation_count": 0,
+    "venue": "Proceedings of the 22nd Workshop on Multiword Expressions (MWE 2026), 8-26, 2026",
+    "author": "Johan Nevin Sofalas and Dilushri Pavithra and Nevidu Jayatilleke and Ruvan Weerasinghe",
+    "url": "https://aclanthology.org/2026.mwe-1.2/"
   },
   {
     "title": "SinhaLegal: A Benchmark Corpus for Information Extraction and Analysis in Sinhala Legislative Texts",
