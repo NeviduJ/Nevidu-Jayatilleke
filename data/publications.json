@@ -2,26 +2,26 @@
   {
     "title": "Zero-shot OCR Accuracy of Low-Resourced Languages: A Comparative Analysis on Sinhala and Tamil",
     "year": 2025,
-    "citation_count": 10,
+    "citation_count": 9,
     "venue": "Proceedings of the 15th International Conference on Recent Advances in \u2026, 2025",
     "author": "Nevidu Jayatilleke and Nisansa De Silva",
     "url": "https://aclanthology.org/2025.ranlp-1.56/"
   },
   {
-    "title": "Advancements in natural language processing for automatic text summarization",
-    "year": 2024,
-    "citation_count": 6,
-    "venue": "2024 4th International Conference on Computer Systems (ICCS), 74-84, 2024",
-    "author": "Nevidu Jayatilleke and Ruvan Weerasinghe and Nipuna Senanayake",
-    "url": "https://ieeexplore.ieee.org/abstract/document/10795848/"
-  },
-  {
-    "title": "SiDiaC: Sinhala Diachronic Corpus",
+    "title": "SiDiaC: Sinhala diachronic corpus",
     "year": 2025,
     "citation_count": 5,
     "venue": "Proceedings of the 39th Pacific Asia Conference on Language, Information and \u2026, 2025",
-    "author": "Nevidu Jayatilleke and Nisansa de Silva",
-    "url": "https://arxiv.org/abs/2509.17912"
+    "author": "Nevidu Jayatilleke and Nisansa De Silva",
+    "url": "https://aclanthology.org/2025.paclic-1.47.pdf"
+  },
+  {
+    "title": "Advancements in natural language processing for automatic text summarization",
+    "year": 2024,
+    "citation_count": 5,
+    "venue": "2024 4th International Conference on Computer Systems (ICCS), 74-84, 2024",
+    "author": "Nevidu Jayatilleke and Ruvan Weerasinghe and Nipuna Senanayake",
+    "url": "https://ieeexplore.ieee.org/abstract/document/10795848/"
   },
   {
     "title": "A Hybrid Architecture with Efficient Fine Tuning for Abstractive Patent Document Summarization",
@@ -30,6 +30,14 @@
     "venue": "2025 International Research Conference on Smart Computing and Systems \u2026, 2025",
     "author": "Nevidu Jayatilleke and Ruvan Weerasinghe",
     "url": "https://ieeexplore.ieee.org/abstract/document/11030964/"
+  },
+  {
+    "title": "SiPaKosa: A Comprehensive Corpus of Canonical and Classical Buddhist Texts in Sinhala and Pali",
+    "year": 2026,
+    "citation_count": 1,
+    "venue": "Proceedings of the Second workshop on Challenges in Processing South Asian \u2026, 2026",
+    "author": "Ranidu Gurursinghe and Nevidu Jayatilleke",
+    "url": "https://aclanthology.org/2026.chipsal-1.pdf#page=82"
   },
   {
     "title": "SINFOS: A Parallel Dataset for Translating Sinhala Figures of Speech",
@@ -56,14 +64,6 @@
     "url": "https://arxiv.org/abs/2606.29378"
   },
   {
-    "title": "SiPaKosa: A Comprehensive Corpus of Canonical and Classical Buddhist Texts in Sinhala and Pali",
-    "year": 2026,
-    "citation_count": 0,
-    "venue": "arXiv preprint arXiv:2603.29221",
-    "author": "Ranidu Gurusinghe and Nevidu Jayatilleke",
-    "url": "https://arxiv.org/abs/2603.29221"
-  },
-  {
     "title": "SiDiaC-v. 2.0: Sinhala Diachronic Corpus Version 2.0",
     "year": 2026,
     "citation_count": 0,
@@ -77,6 +77,6 @@
     "citation_count": 0,
     "venue": "Proceedings of the Second Workshop on Language Models for Low-Resource \u2026, 2026",
     "author": "Minduli Lasandi and Nevidu Jayatilleke",
-    "url": "https://www.researchgate.net/profile/Nevidu-Jayatilleke/publication/403069925_SinhaLegal_A_Benchmark_Corpus_for_Information_Extraction_and_Analysis_in_Sinhala_Legislative_Texts/links/69ce0159ac3812287565a4bc/SinhaLegal-A-Benchmark-Corpus-for-Information-Extraction-and-Analysis-in-Sinhala-Legislative-Texts.pdf"
+    "url": "https://aclanthology.org/2026.loreslm-1.11/"
   }
 ]
