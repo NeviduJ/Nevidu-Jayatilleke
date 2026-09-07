@@ -8,9 +8,9 @@
     "url": "https://aclanthology.org/2025.ranlp-1.56/"
   },
   {
-    "title": "SiDiaC: Sinhala diachronic corpus",
+    "title": "Sidiac: Sinhala diachronic corpus",
     "year": 2025,
-    "citation_count": 5,
+    "citation_count": 6,
     "venue": "Proceedings of the 39th Pacific Asia Conference on Language, Information and \u2026, 2025",
     "author": "Nevidu Jayatilleke and Nisansa De Silva",
     "url": "https://aclanthology.org/2025.paclic-1.47.pdf"
@@ -40,6 +40,14 @@
     "url": "https://aclanthology.org/2026.chipsal-1.pdf#page=82"
   },
   {
+    "title": "SiDiaC-v. 2.0: Sinhala Diachronic Corpus Version 2.0",
+    "year": 2026,
+    "citation_count": 1,
+    "venue": "arXiv preprint arXiv:2603.10861",
+    "author": "Nevidu Jayatilleke and Nisansa de Silva and Uthpala Nimanthi and Gagani Kulathilaka and Azra Safrullah and Johan Sofalas",
+    "url": "https://arxiv.org/abs/2603.10861"
+  },
+  {
     "title": "SINFOS: A Parallel Dataset for Translating Sinhala Figures of Speech",
     "year": 2026,
     "citation_count": 1,
@@ -62,14 +70,6 @@
     "venue": "arXiv preprint arXiv:2606.29378",
     "author": "Avisha Dilhara and Nevidu Jayatilleke",
     "url": "https://arxiv.org/abs/2606.29378"
-  },
-  {
-    "title": "SiDiaC-v. 2.0: Sinhala Diachronic Corpus Version 2.0",
-    "year": 2026,
-    "citation_count": 0,
-    "venue": "arXiv preprint arXiv:2603.10861",
-    "author": "Nevidu Jayatilleke and Nisansa de Silva and Uthpala Nimanthi and Gagani Kulathilaka and Azra Safrullah and Johan Sofalas",
-    "url": "https://arxiv.org/abs/2603.10861"
   },
   {
     "title": "SINHALEGAL: A Benchmark Corpus for Information Extraction and Analysis in Sinhala Legislative Texts",
